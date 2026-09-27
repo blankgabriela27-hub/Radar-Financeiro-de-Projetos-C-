@@ -19,4 +19,12 @@ public class AppDbContext : DbContext
     public DbSet<Despesa> Despesas { get; set; }
 
     public DbSet<Usuario> Usuarios { get; set; }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Pesquisador>().ToTable("pesquisadores");
+        modelBuilder.Entity<Projeto>().ToTable("projetos");
+        modelBuilder.Entity<Receita>().ToTable("receitas");
+        modelBuilder.Entity<Despesa>().ToTable("despesas");
+        modelBuilder.Entity<Usuario>().ToTable("usuarios");
+    }
 }
